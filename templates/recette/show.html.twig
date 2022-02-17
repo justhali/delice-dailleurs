@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Délices d'Ailleurs | {{recette.nomRecette}}{% endblock %}
+
+{% block body %}
+<div class="d-flex flex-column align-items-center my-5">
+    <div class="card col-8 m-4 p-0 shadow mb-5 bg-body rounded">
+		<div class="card-header">
+			<h3 class="card-title">{{ recette.nomRecette }}</h3>
+		</div>
+		<div class="image">
+			<img src="/{{recette.image}}" alt="photo de {{recette.nomRecette}}" class="card-img-top">
+		</div>
+
+		<div class="row gx-5 card-body">
+			<div class="col-4 p-3 ">
+				<i class="far fa-clock mx-3"></i>  {{ recette.tempsPreparation}} min
+        </div>
+			<div class="col-4 p-3 ">
+        <i class="fas fa-utensils mx-3"></i>  {{ recette.tempsCuisson}}	min
+        </div>
+			<p class="card-text">{{ recette.descriptionRecette}}</p>
+		</div>
+		<div class="card-footer"><small>{{recette.zoneGeo.nom}}</small></div>
+	</div>
+
+    <div class="row">
+        <ol class="list-group list-group-numbered col-3 m-4 ms-0">
+            <h5>Ingrédients</h5>
+            
+            
+                    {% for ingredient in ingredients %}
+
+                    <li class="list-group-item d-flex justify-content-between align-items-start shadow-sm p-3 mb-5 bg-body rounded">
+                <div class="ms-2 me-auto">
+                        <div class="fw-bold">{{ ingredient.ingredient.nomIngredient }}</div>
+                
+                    </li>
+                {% else %}
+                    <div>Liste vide</div>
+                {% endfor %}
+            </li>
+        </ol>
+    </div>
+    <div class="container">
+    <a href="{{ path('recette_index') }}" 
+        class="btn col-3 shadow p-3 mb-5 bg-body rounded rounded-pill">
+        <i class="fas fa-angle-double-left"></i>   Retour à la liste des recettes
+    </a>
+    {% if is_granted("ROLE_ADMIN") %}
+            <a href="{{ path('recette_new')}}" class="redirection_link m-4">
+                <i class="far fa-plus-square"></i>    Créer une nouvelle Recette
+            </a>                            
+    {% endif %}      
+    </div>
+</div>
+            
+{% endblock %}

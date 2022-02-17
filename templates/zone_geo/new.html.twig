@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer une zone géographique{% endblock %}
+
+{% block body %}
+<div class="container m-4">
+
+    <h1 class="my-4">Créer une zone géographique</h1>
+
+    {{ include('zone_geo/_form.html.twig') }}
+</div>
+    <a href="{{ path('zone_geo_index') }}" class="btn col-3 shadow p-3 mb-5 bg-body rounded rounded-pill">
+        <i class="fas fa-angle-double-left"></i>   Liste des zones
+    </a>
+</div>    
+{% endblock %}

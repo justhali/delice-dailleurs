@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Dr+Sugiyama&family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,400;1,700&display=swap');
+
+/* Couleurs 
+  e6b7a7 -blanc cassé
+  962500 -rouge 
+  db7958 -orange
+  e6b7a7c2 -beige
+*/
+:root{
+  --body-color: #FFFAFA;
+  --bg-color: #e6b7a7c2;
+  --dark-color: #962500;
+  --hover-color: #db7958;
+}
+
+/**** QUICK RESET ***/
+html,
+body {
+  font-family: "Poppins", "Sans-Serif", "Arial";
+  background-color: var(--body-color);
+}
+a{
+  text-decoration: none;
+}
+
+/**** navbar ****/
+nav.navbar.navbar-expand-xl.navbar-light{
+  background-color: var(--bg-color) !important;
+}
+.navbar-light .navbar-brand, 
+footer .logo-footer a{
+  color: var(--dark-color);
+  font-family: "Dr Sugiyama";
+  font-size:1.9rem;
+}
+
+.navbar-light .navbar-brand:hover{
+  color: var(--dark-color);
+}
+
+.btn-login a{
+  color: var(--dark-color)
+}
+
+.btn-register{
+  background-color: var(--dark-color);
+}
+
+.btn-register a{
+  color: #ffff;
+}
+
+nav .connectedUser a, 
+nav .connectedUser i{
+  color: var(--dark-color);
+}
+
+nav .searchRecipe{
+  width: 80px;
+}
+
+/**** recettes ****/
+button a.redirection_link{
+  font-size: 1.2rem;
+  color: var(--dark-color);
+}
+
+/***** login *****/
+
+/**** footer ****/
+footer.d-flex.bg-white{
+  background-color: var(--bg-color) !important;
+}
+
+ul.list-inline.socials a{
+  font-size: 2rem;
+  color: var(--dark-color);
+}
+
+.list-unstyled.mb-0 .mb-2 a{
+  color: black;
+}
+
+footer h6{
+  font-weight: bold;
+  color:rgba(0,0,0,.5) ;
+}
+
+footer .btn-news{
+  color: var(--dark-color);
+}

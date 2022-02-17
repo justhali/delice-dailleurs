@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajout d'un ingredient à une recette{% endblock %}
+
+{% block body %}
+<div class="m-4">
+    <h1>Ajout d'un Ingredient à une recette</h1>
+
+    {{ include('recette_ingredient/_form.html.twig') }}
+</div>
+    <a href="{{ path('recette_ingredient_index') }}" class="btn col-3 shadow p-3 mb-5 bg-body rounded rounded-pill">
+        <i class="fas fa-angle-double-left"></i>   Liste des favoris
+    </a>
+{% endblock %}

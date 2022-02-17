@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des ingrédients{% endblock %}
+
+{% block body %}
+<div class="my-5">
+    <h1 class="mb-4">Liste des ingrédients</h1>
+
+    <table class="table table-striped my-5">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nom de l'ingrédient</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ingredient in ingredients %}
+                <tr>
+                    <td>{{ ingredient.id }}</td>
+                    <td>{{ ingredient.nomIngredient }}</td>
+                    <td class="actions-table">
+                        <a href="{{ path('ingredient_show', {'id': ingredient.id}) }}" 
+                            class="redirection_link me-4"><i class="far fa-eye seemore"></i>   Consulter</a>
+                        <a href="{{ path('ingredient_edit', {'id': ingredient.id}) }}" 
+                            class="redirection_link ms-4"><i class="far fa-edit seemore"></i>   Modifier</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">Liste vide</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+    <a href="{{ path('ingredient_new')}}" class="redirection_link m-4">
+        <i class="far fa-plus-square"></i>    Créer un nouvel ingrédient
+    </a> 
+{% endblock %}

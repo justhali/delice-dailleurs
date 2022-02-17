@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des zones géo{% endblock %}
+
+{% block body %}
+    <div class="container m-4">
+        <h1 class="my-4">Liste des zones géographiques</h1>
+
+        <table class="table table-striped mt-5 mb-3">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nom</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for zone_geo in zone_geos %}
+                <tr>
+                    <td>{{ zone_geo.id }}</td>
+                    <td>{{ zone_geo.nom }}</td>
+                    <td>
+                        <a href="{{ path('zone_geo_show', {'id': zone_geo.id}) }}" class="me-4"><i class="far fa-eye"></i>   Consulter</a>
+                        <a href="{{ path('zone_geo_edit', {'id': zone_geo.id}) }}" class="ms-4"><i class="far fa-edit"></i>   Modifier</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">Aucun élément trouvé</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <a href="{{ path('zone_geo_new')}}" class="btn col-3 shadow p-3 mb-5 bg-body rounded rounded-pill my-5">
+        <i class="far fa-plus-square"></i>    Créer une nouvelle zone
+    </a>     
+{% endblock %}

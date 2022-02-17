@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier la zone géo{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1 class="my-4">Modifier la zone géographique</h1>
+
+    {{ include('zone_geo/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+    {{ include('zone_geo/_delete_form.html.twig') }}
+
+</div>
+    <a href="{{ path('zone_geo_index') }}" class="btn col-3 shadow p-3 m-5 bg-body rounded rounded-pill">
+        <i class="fas fa-angle-double-left"></i>   Liste des zones géographiques
+    </a>
+{% endblock %}

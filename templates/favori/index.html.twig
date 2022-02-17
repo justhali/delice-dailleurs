@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des favoris{% endblock %}
+
+{% block body %}
+<div class="my-5">
+    <h1>Liste des favoris</h1>
+
+    {% for favori in favoris %}
+
+    <div class="card col my-4 p-0 shadow bg-body rounded border-0 ">
+        <div class="card-body">
+            <h6 class="card-subtitle mb-2 text-muted">{{ favori.id }}</h6>
+            <h5 class="card-title">{{ favori.recette.nomRecette }}</h5>
+            <a href="{{ path('favori_show', {'id': favori.id}) }}"class=" redirection_link me-4"><i class="far fa-eye"></i>   Consulter</a>
+            <a href="{{ path('favori_edit', {'id': favori.id}) }}"class=" redirection_link ms-4"><i class="far fa-edit"></i>   Modifier</a>
+        </div>
+    </div>
+
+    {% else %}
+        <tr>
+            <td colspan="2">Liste vide</td>
+        </tr>
+    {% endfor %}
+</div>
+    <a href="{{ path('favori_new')}}" class="redirection_link m-4">
+        <i class="far fa-plus-square"></i>    Créer un nouveau favori
+    </a> 
+{% endblock %}

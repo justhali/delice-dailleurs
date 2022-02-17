@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ingrédient {{ ingredient.nomIngredient }}{% endblock %}
+
+{% block body %}
+<div class="m-4">
+    <h1 class="my-4">Ingrédient : {{ ingredient.nomIngredient }}</h1>
+
+    <table class="table table-striped col-12 mt-5">
+        <tbody>
+            <tr>
+                <th class="col-6">#</th>
+                <td>{{ ingredient.id }}</td>
+            </tr>
+            <tr>
+                <th class="col-6">Nom ingrédient</th>
+                <td>{{ ingredient.nomIngredient }}</td>
+            </tr>
+            <tr>
+                <th class="col-6">Modifier</th>
+                <td><a href="{{ path('ingredient_edit', {'id': ingredient.id}) }}"class="redirection_link"><i class="far fa-edit">   Modifier</a></td>
+            </tr>
+        </tbody>
+    </table>
+    {{ include('ingredient/_delete_form.html.twig') }}
+</div>    
+    <a href="{{ path('ingredient_index') }}" class="btn col-3 shadow p-3 my-5 bg-body rounded rounded-pill">
+        <i class="fas fa-angle-double-left"></i>   Retour à la liste des ingrédients
+    </a>
+{% endblock %}

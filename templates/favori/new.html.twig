@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer un nouveau favori{% endblock %}
+
+{% block body %}
+<div class="m-4">   
+    <h1>Créer un nouveau favori</h1>
+
+    {{ include('favori/_form.html.twig') }}
+</div>
+    <a href="{{ path('favori_index') }}" class="btn col-3 shadow p-3 mb-5 bg-body rounded rounded-pill">
+        <i class="fas fa-angle-double-left"></i>   Liste des favoris
+    </a>
+{% endblock %}

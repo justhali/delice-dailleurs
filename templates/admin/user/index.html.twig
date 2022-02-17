@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des utilisateurs{% endblock %}
+
+{% block body %}
+<div class="m-4">
+    <h1>Liste des utilisateurs</h1>
+
+    <table class="table table-striped mt-5">
+        <thead>
+            <tr>
+                <th>Pseudo</th>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Pseudo</th>
+                <th>Email</th>
+                <th>Roles</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.pseudo }}</td>
+                <td>{{ user.nom }}</td>
+                <td>{{ user.prenom }}</td>
+                <td>{{ user.pseudo }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                <td>
+
+                <a href="{{ path('user_show', {'id': user.id}) }}"class="me-4"><i class="far fa-eye"></i>   Consulter</a>
+                <a href="{{ path('user_edit', {'id': user.id}) }}"class="ms-4"><i class="far fa-edit"></i>   Modifier</a>
+
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="8">Liste vide</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+    <a href="{{ path('user_new')}}" class="redirection_link my-5">
+        <i class="far fa-plus-square"></i>    Créer un nouvel utilisateur
+    </a> 
+
+{% endblock %}
